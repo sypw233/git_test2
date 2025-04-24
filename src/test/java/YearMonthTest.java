@@ -19,4 +19,10 @@ public class YearMonthTest {
         assertEquals (5,yearMonth.getMonth());
     }
 
+    @Test
+    public void  CreatYearMonthbyString(){
+        YearMonth yearMonth = new YearMonth("202605");
+        assertEquals (2026,yearMonth.getYear());
+        assertEquals (5,yearMonth.getMonth());
+    }
 }
