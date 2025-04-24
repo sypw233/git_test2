@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.time.Month;
 import java.time.Year;
 
@@ -12,8 +13,14 @@ public class YearMonth {
     }
 
     public YearMonth(String yearMonth) {
-        Year= Integer.parseInt(yearMonth.substring(0,4));
-        Month=Integer.parseInt(yearMonth.substring(4,6));
+        this(Integer.parseInt(yearMonth.substring(0,4)),
+                Integer.parseInt(yearMonth.substring(4,6)
+                )
+        );
+    }
+
+    public YearMonth(LocalDate dateTime) {
+        this(dateTime.getYear(), dateTime.getMonthValue());
     }
 
     public int getYear() {
@@ -23,4 +30,22 @@ public class YearMonth {
     public int getMonth() {
         return Month;
     }
+
+
+    public YearMonth previous() {
+        if (Month == 1) {
+            return new YearMonth(Year - 1, 12);
+        } else {
+            return new YearMonth(Year, Month - 1);
+        }
+    }
+
+    public YearMonth next() {
+        if (Month == 12) {
+            return new YearMonth(Year + 1, 1);
+        } else {
+            return new YearMonth(Year, Month + 1);
+        }
+    }
+
 }

@@ -1,4 +1,3 @@
-
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -25,4 +24,37 @@ public class YearMonthTest {
         assertEquals (2026,yearMonth.getYear());
         assertEquals (5,yearMonth.getMonth());
     }
+
+    @Test
+    public void previousMonth() {
+        YearMonth yearMonth = new YearMonth(2025, 4);
+        YearMonth previous = yearMonth.previous();
+        assertEquals(2025, previous.getYear());
+        assertEquals(3, previous.getMonth());
+    }
+
+    @Test
+    public void nextMonth() {
+        YearMonth yearMonth = new YearMonth(2025, 4);
+        YearMonth next = yearMonth.next();
+        assertEquals(2025, next.getYear());
+        assertEquals(5, next.getMonth());
+    }
+
+    @Test
+    public void previousMonthYearEnd() {
+        YearMonth yearMonth = new YearMonth(2025, 12);
+        YearMonth previous = yearMonth.previous();
+        assertEquals(2025, previous.getYear());
+        assertEquals(11, previous.getMonth());
+    }
+
+    @Test
+    public void nextMonthYearStart() {
+        YearMonth yearMonth = new YearMonth(2025, 1);
+        YearMonth next = yearMonth.next();
+        assertEquals(2025, next.getYear());
+        assertEquals(2, next.getMonth());
+    }
+
 }
