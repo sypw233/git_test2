@@ -18,4 +18,5 @@ public class YearMonthTest {
         assertEquals (2026,yearMonth.getYear());
         assertEquals (5,yearMonth.getMonth());
     }
+
 }
