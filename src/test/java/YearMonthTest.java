@@ -91,7 +91,6 @@ public class YearMonthTest {
 
         // When: 获取下一个月
         YearMonth next = yearMonth.next();
-
         // Then: 验证是否为2025年2月
         assertEquals(2025, next.getYear());
         assertEquals(2, next.getMonth());
